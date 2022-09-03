@@ -1,5 +1,6 @@
 public class BattleLogic {
 
-    private int[] sea = new int[49];
-
+    public int[] spawnShips() {
+        int[] sea = new int[10];
+    }
 }
