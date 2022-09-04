@@ -3,25 +3,47 @@ import java.util.List;
 
 public class BattleLogic {
 
-    public ArrayList<Integer> spawnShips() {
-        ArrayList<Integer> shipsOnSea = new ArrayList<>(100);
-        int largeShipCoord = (int) (Math.random() * 100);
-        int orientation = (int) (Math.random() * 2);
-        if (orientation == 1) {
-            Ship largeShip = new Ship(4, true, largeShipCoord);
-            shipsOnSea.add(largeShipCoord);
-            shipsOnSea.add(largeShipCoord + 1);
-            shipsOnSea.add(largeShipCoord + 2);
-            shipsOnSea.add(largeShipCoord + 3);
+    public ArrayList<Integer> largeShipSpawner() {
+        ArrayList<Integer> sea = new ArrayList<>(100);
+        int randomCoord = (int) (Math.random() * 100);
+        Ship largeShip;
+        if (randomCoord >= 61) {
+            ArrayList<Integer> coords = new ArrayList<>();
+            coords.add(randomCoord);
+            coords.add(randomCoord+1);
+            coords.add(randomCoord+2);
+            coords.add(randomCoord+3);
+            largeShip = new Ship("Princess Victoria (Large Ship)", coords);
         } else {
-            if (largeShipCoord > 60) largeShipCoord = largeShipCoord - 40;
-            Ship largeShip = new Ship(4, false, largeShipCoord);
-            shipsOnSea.add(largeShipCoord);
-            shipsOnSea.add(largeShipCoord + 10);
-            shipsOnSea.add(largeShipCoord + 20);
-            shipsOnSea.add(largeShipCoord + 30);
+            ArrayList<Integer> coords = new ArrayList<>();
+            coords.add(randomCoord);
+            coords.add(randomCoord+10);
+            coords.add(randomCoord+20);
+            coords.add(randomCoord+30);
+            largeShip = new Ship("Princess Victoria (Large Ship)", coords);
         }
-        return shipsOnSea;
+        sea.addAll(largeShip.getCoords());
+        return sea;
+    }
+    public ArrayList<Integer> bigShipSpawner(ArrayList<Integer> sea) {
+
+        int randomCoord = (int) (Math.random() * 100);
+        Ship largeShip;
+        if (randomCoord >= 71) {
+            ArrayList<Integer> coords = new ArrayList<>();
+            coords.add(randomCoord);
+            coords.add(randomCoord+1);
+            coords.add(randomCoord+2);
+            largeShip = new Ship("President Ruzvelt (Large Ship)", coords);
+        } else {
+            ArrayList<Integer> coords = new ArrayList<>();
+            coords.add(randomCoord);
+            coords.add(randomCoord+10);
+            coords.add(randomCoord+20);
+            largeShip = new Ship("President Ruzvelt (Large Ship)", coords);
+        }
+        sea.addAll(largeShip.getCoords());
+        return sea;
     }
 
 }
@@ -29,7 +51,7 @@ public class BattleLogic {
 class BattleLogicTestDrive {
     public static void main(String[] args) {
         BattleLogic battleLogic = new BattleLogic();
-        ArrayList<Integer> sea = battleLogic.spawnShips();
+        ArrayList<Integer> sea = battleLogic.largeShipSpawner();
         for (int coord : sea) {
             System.out.println(coord);
         }

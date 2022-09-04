@@ -1,36 +1,33 @@
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public class Ship {
-    private int size;
-    private boolean orientation;
 
-    private int startCoord;
+    private String name;
+    private ArrayList<Integer> coords;
 
-    public Ship(int size, boolean orientation, int startCoord) {
-        this.size = size;
-        this.orientation = orientation;
-        this.startCoord = startCoord;
+
+    public Ship(String name, ArrayList<Integer> coords) {
+        this.name = name;
+        this.coords = coords;
     }
 
-    public int getStartCoord() {
-        return startCoord;
+    public String getName() {
+        return name;
     }
 
-    public void setStartCoord(int startCoord) {
-        this.startCoord = startCoord;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int getSize() {
-        return size;
+    public ArrayList<Integer> getCoords() {
+        return coords;
     }
 
-    public void setSize(int size) {
-        this.size = size;
+    public void setCoords(ArrayList<Integer> coords) {
+        this.coords = coords;
     }
 
-    public boolean isOrientation() {
-        return orientation;
-    }
 
-    public void setOrientation(boolean orientation) {
-        this.orientation = orientation;
-    }
+
 }
