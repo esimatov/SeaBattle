@@ -2,9 +2,20 @@ public class Ship {
     private int size;
     private boolean orientation;
 
-    public Ship(int size, boolean orientation) {
+    private int startCoord;
+
+    public Ship(int size, boolean orientation, int startCoord) {
         this.size = size;
         this.orientation = orientation;
+        this.startCoord = startCoord;
+    }
+
+    public int getStartCoord() {
+        return startCoord;
+    }
+
+    public void setStartCoord(int startCoord) {
+        this.startCoord = startCoord;
     }
 
     public int getSize() {
